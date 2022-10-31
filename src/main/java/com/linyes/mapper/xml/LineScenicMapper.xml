@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linyes.mapper.LineScenicMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.linyes.pojo.LineScenic">
+        <id column="id" property="id" />
+        <result column="line_id" property="lineId" />
+        <result column="scenic_id" property="scenicId" />
+        <result column="sort" property="sort" />
+        <result column="go_time" property="goTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, line_id, scenic_id, sort, go_time
+    </sql>
+
+</mapper>
