@@ -23,7 +23,7 @@
     select sum(amount) from t_order where status=#{status}
 </select>
     <select id="getAmountSumByWeek" resultType="int">
-        select sum(amount) from t_order where status=#{status} and DAYOFWEEK(create_time)=#{week}
+        select sum(amount) from t_order where status=#{status} and DAYOFWEEK(reservation_time)=#{week}
     </select>
 
 </mapper>

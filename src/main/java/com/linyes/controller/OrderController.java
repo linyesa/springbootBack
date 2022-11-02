@@ -11,6 +11,9 @@ import com.linyes.vo.SearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <p>
  * 订单表（业务数据） 前端控制器
@@ -76,6 +79,13 @@ public class OrderController {
     public Integer getAmountSum(@PathVariable("status") String status){
         return orderMapper.getAmountSum(status);
     }
-
+    @GetMapping("getamountsumbyweek/{status}")
+    public List<Integer> getAmountSumByWeek(@PathVariable("status")String status){
+        List<Integer> list =new ArrayList<>();
+        for(int i=1;i<8;i++){
+            list.add(orderMapper.getAmountSumByWeek(status, i));
+        }
+        return list;
+    }
 }
 

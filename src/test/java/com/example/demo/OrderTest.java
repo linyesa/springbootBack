@@ -32,9 +32,11 @@ public class OrderTest {
         order.setStatus("未支付");
         order.setCreateUser("1");
         order.setTogetherNumber(10);
-        order.setReservationTime(new Date());
         order.setCreateUser("lysa");
-        orderService.save(order);
+        for(int i =1;i<10;i++){
+            order.setReservationTime(new Date());
+            orderService.save(order);
+        }
     }
     @Test
     public void testUpdata(){
@@ -67,7 +69,14 @@ public class OrderTest {
     }
     @Test
     public void testWeek(){
+        int[] array=new int[7];
         //周对应值加一，星期天为1，星期一为2
-        System.out.println(orderMapper.getAmountSumByWeek("已支付",4));
+        for(int i=1;i<8;i++){
+            array[i-1]=orderMapper.getAmountSumByWeek("已支付", i);
+        }
+        System.out.println("array==========");
+        for (int item:array) {
+            System.out.println(item);
+        }
     }
 }
